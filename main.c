@@ -1,4 +1,6 @@
 #include <raylib.h>
+#include <lua.h>
+
 #include <stdio.h>
 #include <math.h>
 
@@ -8,8 +10,9 @@
 #define CHAR_SIZE 8
 
 Vector2 ConvertCharToCoords(char c) {
-	int y = floor(c / 16);
 	int x = c % 16;
+	int y = floor(c / 16);
+	
 	Vector2 v = {
 		.x = x, .y = y,
 	};
@@ -28,7 +31,7 @@ void DrawBitmapCharacter(Texture2D texture, char ch, Vector2 pos, Color c) {
 
 int main() {
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "raylib [core] example - basic window");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Microgue");
 	Texture2D bitmap = LoadTexture("assets/glyphs.png");
 	Vector2 pos = { .x = 0, .y = 0, };
 
